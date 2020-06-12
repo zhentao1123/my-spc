@@ -1,0 +1,21 @@
+server:
+  port: 8010
+
+spring:
+  application:
+    name: my-spc-consul
+  cloud:
+    consul:
+      host: localhost    # consul 启动地址
+      port: 8500         # consul 启动端口
+      discovery:
+        #health-check-path: /info.json
+        health-check-interval: 15s
+        instance-id: ${spring.application.name}-${random.value}
+
+management: 
+  endpoint:
+    consul:
+      enabled: true
+      cache:
+        time-to-live: 5s
