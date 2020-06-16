@@ -37,7 +37,7 @@ VALUES ('gateway', 'default', 'master', 'eureka.client.registerWithEureka', 'tru
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
 VALUES ('gateway', 'default', 'master', 'eureka.client.fetchRegistry', 'true');
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
-VALUES ('gateway', 'default', 'master', 'eureka.client.serviceUrl.defaultZone', 'http://${EUREKA_SERVER1_HOST}:${EUREKA_SERVER1_PORT}/eureka/,http://${EUREKA_SERVER2_HOST}:${EUREKA_SERVER2_PORT}/eureka/');
+VALUES ('gateway', 'default', 'master', 'eureka.client.serviceUrl.defaultZone', 'http://${EUREKA_SERVER1_HOST}:${EUREKA_SERVER1_PORT}/eureka/');
 
 -- turbine
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
