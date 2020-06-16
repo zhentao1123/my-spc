@@ -3,7 +3,7 @@ VALUES ('demo', 'default', 'master', 'app.greet.name', 'Demo');
 
 -- eureka server
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
-VALUES ('eureka-server', 'default', 'master', 'server.port', '${SERVER_PORT:8761}');
+VALUES ('eureka-server', 'default', 'master', 'server.port', '${SERVER_PORT:8010}');
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
 VALUES ('eureka-server', 'default', 'master', 'eureka.instance.preferIpAddress', 'true');
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)

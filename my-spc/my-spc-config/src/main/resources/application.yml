@@ -27,6 +27,9 @@ spring:
     initialization-mode: always
     type: org.apache.tomcat.jdbc.pool.DataSource
     
+server:
+  port: 8011
+    
 management:
   endpoints:
     web:
