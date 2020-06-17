@@ -71,7 +71,7 @@ VALUES ('spring-admin', 'default', 'master', 'eureka.client.registerWithEureka',
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
 VALUES ('spring-admin', 'default', 'master', 'eureka.client.fetchRegistry', 'true');
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
-VALUES ('spring-admin', 'default', 'master', 'eureka.client.serviceUrl.defaultZone', 'http://${EUREKA_SERVER1_HOST}:${EUREKA_SERVER1_PORT}/eureka/,http://${EUREKA_SERVER2_HOST}:${EUREKA_SERVER2_PORT}/eureka/');
+VALUES ('spring-admin', 'default', 'master', 'eureka.client.serviceUrl.defaultZone', 'http://${EUREKA_SERVER1_HOST}:${EUREKA_SERVER1_PORT}/eureka/');
 
 -- biz-service
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
@@ -87,4 +87,4 @@ VALUES ('biz-service', 'default', 'master', 'eureka.client.registerWithEureka', 
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
 VALUES ('biz-service', 'default', 'master', 'eureka.client.fetchRegistry', 'true');
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
-VALUES ('biz-service', 'default', 'master', 'eureka.client.serviceUrl.defaultZone', 'http://${EUREKA_SERVER1_HOST}:${EUREKA_SERVER1_PORT}/eureka/,http://${EUREKA_SERVER2_HOST}:${EUREKA_SERVER2_PORT}/eureka/');
+VALUES ('biz-service', 'default', 'master', 'eureka.client.serviceUrl.defaultZone', 'http://${EUREKA_SERVER1_HOST}:${EUREKA_SERVER1_PORT}/eureka/');
