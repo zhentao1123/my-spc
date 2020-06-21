@@ -20,7 +20,10 @@
 
 		<springboot.version>2.2.0.RELEASE</springboot.version>
 		<springcloud.version>Hoxton.SR5</springcloud.version>
+		<!-- 
 		<spring-boot-admin.version>2.1.4</spring-boot-admin.version>
+		 -->
+		<spring-boot-admin.version>2.2.3</spring-boot-admin.version>
 
 		<alibaba-nacos.version>2.2.1.RELEASE</alibaba-nacos.version>
 		<jedis.version>2.9.0</jedis.version>
