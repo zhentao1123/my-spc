@@ -1,2 +1,3 @@
 logging:
-   file: logs/a.log
+  file: logs/my-spc-biz.log
+  config: classpath:log/logback.xml

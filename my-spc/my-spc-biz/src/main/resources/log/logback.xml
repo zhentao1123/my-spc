@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="appName" value="my-spc-biz" />
+	<property name="logDir" value="logs/" />
+	
+	<appender name="file"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logDir}/${appName}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${logDir}/${appName}.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+		</rollingPolicy>
+		<encoder>  
+	      <pattern>%d{HH:mm:ss.SSS} %-5level %logger{5} - %msg%n</pattern>  
+	      <charset>UTF-8</charset>
+	    </encoder>
+	</appender>
+	
+	<appender name="console"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>   
+	      <pattern>%d{HH:mm:ss.SSS} %-5level %logger{5} - %msg%n</pattern>
+	      <charset>UTF-8</charset>   
+	    </encoder>
+	</appender>
+
+    <appender name ="async-file" class= "ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold >0</discardingThreshold>
+        <queueSize>512</queueSize>
+        <appender-ref ref ="file"/>
+    </appender>
+    
+    <root level="INFO">
+    	<appender-ref ref="console"/>
+        <appender-ref ref="async-file"/>
+    </root>
+    
+	<logger name="org.springframework" level="WARN"/>
+
+</configuration>

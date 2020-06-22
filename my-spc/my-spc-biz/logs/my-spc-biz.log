@@ -1,0 +1,123 @@
+11:19:21.015 INFO  c.b.MySpcBizApplication - No active profile set, falling back to default profiles: default
+11:19:22.915 WARN  o.s.b.a.e.EndpointId - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+11:19:24.300 INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+11:19:24.301 INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
+11:19:24.597 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+11:19:24.801 WARN  c.n.c.s.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+11:19:24.801 INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:19:24.821 INFO  c.n.c.DynamicPropertyFactory - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@73809e7
+11:19:25.696 WARN  c.n.c.s.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+11:19:25.696 INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:19:27.268 WARN  o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+11:19:27.307 WARN  o.s.c.c.l.r.ReactorLoadBalancerClientAutoConfiguration$ReactorLoadBalancerClientRibbonWarnLogger - You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+11:19:27.853 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:19:27.966 INFO  c.n.d.DiscoveryClient - Initializing Eureka in region us-east-1
+11:19:28.452 INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+11:19:28.452 INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+11:19:28.716 INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+11:19:28.716 INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+11:19:29.077 INFO  c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration
+11:19:29.117 INFO  c.n.d.DiscoveryClient - Disable delta property : false
+11:19:29.117 INFO  c.n.d.DiscoveryClient - Single vip registry refresh property : null
+11:19:29.117 INFO  c.n.d.DiscoveryClient - Force full registry fetch : false
+11:19:29.117 INFO  c.n.d.DiscoveryClient - Application is null : false
+11:19:29.117 INFO  c.n.d.DiscoveryClient - Registered Applications size is zero : true
+11:19:29.117 INFO  c.n.d.DiscoveryClient - Application version is -1: true
+11:19:29.117 INFO  c.n.d.DiscoveryClient - Getting all instance registry info from the eureka server
+11:19:29.348 INFO  c.n.d.DiscoveryClient - The response status is 200
+11:19:29.351 INFO  c.n.d.DiscoveryClient - Starting heartbeat executor: renew interval is: 10
+11:19:29.360 INFO  c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+11:19:29.366 INFO  c.n.d.DiscoveryClient - Discovery Client initialized at timestamp 1592795969365 with initial instances count: 3
+11:19:29.367 INFO  c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1592795969367, current=UP, previous=STARTING]
+11:19:29.369 INFO  c.n.d.DiscoveryClient - DiscoveryClient_BIZ-SERVICE/192.168.31.2:biz-service:8003: registering service...
+11:19:29.434 INFO  c.n.d.DiscoveryClient - DiscoveryClient_BIZ-SERVICE/192.168.31.2:biz-service:8003 - registration status: 204
+11:19:29.483 INFO  c.b.MySpcBizApplication - Started MySpcBizApplication in 11.846 seconds (JVM running for 13.933)
+11:19:38.263 INFO  c.b.MySpcBizApplication - ==> Request getUser 
+11:19:45.903 INFO  c.b.MySpcBizApplication - ==> Request getUser 
+11:20:05.161 INFO  c.b.MySpcBizApplication - ==> Request getUser 
+11:21:36.149 WARN  c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1592796096148, current=DOWN, previous=UP]
+11:21:36.150 INFO  c.n.d.DiscoveryClient - DiscoveryClient_BIZ-SERVICE/192.168.31.2:biz-service:8003: registering service...
+11:21:36.159 INFO  c.n.d.DiscoveryClient - DiscoveryClient_BIZ-SERVICE/192.168.31.2:biz-service:8003 - registration status: 204
+11:21:36.197 INFO  c.n.d.DiscoveryClient - Shutting down DiscoveryClient ...
+11:21:39.204 INFO  c.n.d.DiscoveryClient - Unregistering ...
+11:21:39.208 INFO  c.n.d.DiscoveryClient - DiscoveryClient_BIZ-SERVICE/192.168.31.2:biz-service:8003 - deregister  status: 200
+11:21:39.240 INFO  c.n.d.DiscoveryClient - Completed shut down of DiscoveryClient
+11:21:39.249 INFO  o.a.c.c.StandardService - Stopping service [Tomcat]
+11:21:39.257 INFO  o.a.c.c.C.[.[.[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+11:22:43.962 c.b.MySpcBizApplication - No active profile set, falling back to default profiles: default
+11:22:45.906 o.s.b.a.e.EndpointId - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+11:22:47.181 o.a.c.c.StandardService - Starting service [Tomcat]
+11:22:47.182 o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
+11:22:47.429 o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+11:22:47.626 c.n.c.s.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+11:22:47.627 c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:22:47.645 c.n.c.DynamicPropertyFactory - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@7a45d714
+11:22:48.417 c.n.c.s.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+11:22:48.418 c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:22:49.926 o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+11:22:49.946 o.s.c.c.l.r.ReactorLoadBalancerClientAutoConfiguration$ReactorLoadBalancerClientRibbonWarnLogger - You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+11:22:50.701 c.n.d.DiscoveryClient - Initializing Eureka in region us-east-1
+11:22:50.745 o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:22:51.345 c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+11:22:51.346 c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+11:22:51.626 c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+11:22:51.626 c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+11:22:52.011 c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration
+11:22:52.050 c.n.d.DiscoveryClient - Disable delta property : false
+11:22:52.051 c.n.d.DiscoveryClient - Single vip registry refresh property : null
+11:22:52.051 c.n.d.DiscoveryClient - Force full registry fetch : false
+11:22:52.052 c.n.d.DiscoveryClient - Application is null : false
+11:22:52.053 c.n.d.DiscoveryClient - Registered Applications size is zero : true
+11:22:52.054 c.n.d.DiscoveryClient - Application version is -1: true
+11:22:52.055 c.n.d.DiscoveryClient - Getting all instance registry info from the eureka server
+11:22:52.338 c.n.d.DiscoveryClient - The response status is 200
+11:22:52.343 c.n.d.DiscoveryClient - Starting heartbeat executor: renew interval is: 10
+11:22:52.346 c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+11:22:52.359 c.n.d.DiscoveryClient - Discovery Client initialized at timestamp 1592796172355 with initial instances count: 2
+11:22:52.361 c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1592796172361, current=UP, previous=STARTING]
+11:22:52.368 c.n.d.DiscoveryClient - DiscoveryClient_BIZ-SERVICE/192.168.31.2:biz-service:8003: registering service...
+11:22:52.495 c.n.d.DiscoveryClient - DiscoveryClient_BIZ-SERVICE/192.168.31.2:biz-service:8003 - registration status: 204
+11:22:52.509 c.b.MySpcBizApplication - Started MySpcBizApplication in 11.003 seconds (JVM running for 12.592)
+11:23:57.461 c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1592796237461, current=DOWN, previous=UP]
+11:23:57.463 c.n.d.DiscoveryClient - DiscoveryClient_BIZ-SERVICE/192.168.31.2:biz-service:8003: registering service...
+11:23:57.473 c.n.d.DiscoveryClient - DiscoveryClient_BIZ-SERVICE/192.168.31.2:biz-service:8003 - registration status: 204
+11:23:57.511 c.n.d.DiscoveryClient - Shutting down DiscoveryClient ...
+11:24:00.515 c.n.d.DiscoveryClient - Unregistering ...
+11:24:00.527 c.n.d.DiscoveryClient - DiscoveryClient_BIZ-SERVICE/192.168.31.2:biz-service:8003 - deregister  status: 200
+11:24:00.555 c.n.d.DiscoveryClient - Completed shut down of DiscoveryClient
+11:24:00.572 o.a.c.c.StandardService - Stopping service [Tomcat]
+11:24:00.580 o.a.c.c.C.[.[.[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+11:24:11 INFO  c.b.MySpcBizApplication - No active profile set, falling back to default profiles: default
+11:24:13 WARN  o.s.b.a.e.EndpointId - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+11:24:14 INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+11:24:14 INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
+11:24:14 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+11:24:15 WARN  c.n.c.s.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+11:24:15 INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:24:15 INFO  c.n.c.DynamicPropertyFactory - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@329548d0
+11:24:16 WARN  c.n.c.s.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+11:24:16 INFO  c.n.c.s.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:24:19 WARN  o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+11:24:19 WARN  o.s.c.c.l.r.ReactorLoadBalancerClientAutoConfiguration$ReactorLoadBalancerClientRibbonWarnLogger - You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+11:24:20 INFO  c.n.d.DiscoveryClient - Initializing Eureka in region us-east-1
+11:24:21 INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+11:24:21 INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+11:24:21 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:24:22 INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+11:24:22 INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+11:24:23 INFO  c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration
+11:24:23 INFO  c.n.d.DiscoveryClient - Disable delta property : false
+11:24:23 INFO  c.n.d.DiscoveryClient - Single vip registry refresh property : null
+11:24:23 INFO  c.n.d.DiscoveryClient - Force full registry fetch : false
+11:24:23 INFO  c.n.d.DiscoveryClient - Application is null : false
+11:24:23 INFO  c.n.d.DiscoveryClient - Registered Applications size is zero : true
+11:24:23 INFO  c.n.d.DiscoveryClient - Application version is -1: true
+11:24:23 INFO  c.n.d.DiscoveryClient - Getting all instance registry info from the eureka server
+11:24:23 INFO  c.n.d.DiscoveryClient - The response status is 200
+11:24:23 INFO  c.n.d.DiscoveryClient - Starting heartbeat executor: renew interval is: 10
+11:24:23 INFO  c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+11:24:23 INFO  c.n.d.DiscoveryClient - Discovery Client initialized at timestamp 1592796263693 with initial instances count: 3
+11:24:23 INFO  c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1592796263697, current=UP, previous=STARTING]
+11:24:23 INFO  c.n.d.DiscoveryClient - DiscoveryClient_BIZ-SERVICE/192.168.31.2:biz-service:8003: registering service...
+11:24:23 INFO  c.n.d.DiscoveryClient - DiscoveryClient_BIZ-SERVICE/192.168.31.2:biz-service:8003 - registration status: 204
+11:24:24 INFO  c.b.MySpcBizApplication - Started MySpcBizApplication in 15.257 seconds (JVM running for 16.836)
