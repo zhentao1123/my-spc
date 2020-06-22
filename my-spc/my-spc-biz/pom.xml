@@ -8,7 +8,7 @@
 		<artifactId>my-spc-parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
 		<relativePath>my-spc-parent</relativePath>
-	</parent>
+	</parent> 
 	
 	<groupId>cn.bobz</groupId>
 	<artifactId>my-spc-biz</artifactId>
