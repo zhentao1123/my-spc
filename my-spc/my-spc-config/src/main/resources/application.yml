@@ -14,7 +14,6 @@ spring:
       label: master
       server:
         bootstrap: true
-        jdbc: true
         
   datasource:
     url: jdbc:h2:mem:testdb
