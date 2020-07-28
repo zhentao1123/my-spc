@@ -3,11 +3,22 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<modules>
+		<module>my-spc-admin</module>
+		<module>my-spc-biz</module>
+		<module>my-spc-config</module>
+		<module>my-spc-consul</module>
+		<module>my-spc-eureka</module>
+		<module>my-spc-nacos</module>
+		<module>my-spc-turbine</module>
+		<module>my-spc-parent</module>
+	</modules>
+
 	<parent>
 		<groupId>cn.bobz</groupId>
 		<artifactId>my-spc-parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
-		<relativePath>xglory-parent/</relativePath>
+		<relativePath>my-spc-parent</relativePath>
 	</parent>
 
 	<groupId>cn.bobz</groupId>
@@ -19,10 +30,31 @@
 	<name>my-spc</name>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
 	</properties>
 
 	<dependencies>
 
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<skipTests>true</skipTests>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
 </project>
