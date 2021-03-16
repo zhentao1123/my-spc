@@ -6,8 +6,7 @@ spring:
     config:
       fail-fast: true
       label: master
-      #uri: http://${CONFIG_SERVER_HOST}:${CONFIG_SERVER_PORT}
-      uri: http://127.0.0.1:8011
+      uri: http://${CONFIG_SERVER_HOST:127.0.0.1}:${CONFIG_SERVER_PORT:8011}
       
 management:
   endpoints:

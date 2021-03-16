@@ -9,6 +9,7 @@
 		<module>my-spc-config</module>
 		<module>my-spc-consul</module>
 		<module>my-spc-eureka</module>
+		<module>my-spc-gateway</module>
 		<module>my-spc-nacos</module>
 		<module>my-spc-turbine</module>
 		<module>my-spc-parent</module>

@@ -1,10 +1,12 @@
 logging:
-  file: logs/my-spc-biz.log
   config: classpath:log/logback.xml
-  
+  file:
+    path: logs/
+    name: my-spc-biz.log
+
 eureka:
   client:
-    enabled: false #本地可追加配置
+    enabled: true #本地可追加配置
     
 server:
   port: 8004 #本地配置不能覆盖config服务器配置
