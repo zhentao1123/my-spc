@@ -188,7 +188,20 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	<!-- -->
+
+	<!-- Don't work ???
+	<pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${springboot.version}</version>
+			</plugin>
+		</plugins>
+	</pluginManagement>
+	-->
+
+	<!-- repositories -->
 	<repositories>
 		<repository>
 			<id>aliyun-repos</id>
@@ -198,7 +211,6 @@
 			</snapshots>
 		</repository>
 	</repositories>
-
 	<pluginRepositories>
 		<pluginRepository>
 			<id>aliyun-plugin</id>
