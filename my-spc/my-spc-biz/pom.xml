@@ -7,15 +7,13 @@
 		<groupId>cn.bobz</groupId>
 		<artifactId>my-spc-parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
-		<relativePath>my-spc-parent</relativePath>
+		<relativePath/>
 	</parent> 
 	
-	<groupId>cn.bobz</groupId>
 	<artifactId>my-spc-biz</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	
 	<name>my-spc-biz</name>
-	<description></description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -61,10 +59,12 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.name}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${springboot.version}</version>
 			</plugin>
 		</plugins>
 	</build>
