@@ -7,15 +7,13 @@
 		<groupId>cn.bobz</groupId>
 		<artifactId>my-spc-parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
-		<relativePath>my-spc-parent</relativePath>
+		<relativePath/>
 	</parent>
 	
-	<groupId>cn.bobz</groupId>
 	<artifactId>my-spc-admin</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	
 	<name>my-spc-admin</name>
-	<description></description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -49,10 +47,12 @@
 	</dependencies>
 
 	<build>
+		<finalName>my-spc-admin</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${springboot.version}</version>
 			</plugin>
 		</plugins>
 	</build>
