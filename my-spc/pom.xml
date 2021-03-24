@@ -13,7 +13,8 @@
 		<module>my-spc-nacos</module>
 		<module>my-spc-turbine</module>
 		<module>my-spc-parent</module>
-	</modules>
+        <module>my-spc-module</module>
+    </modules>
 
 	<parent>
 		<groupId>cn.bobz</groupId>
