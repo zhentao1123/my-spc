@@ -1,0 +1,22 @@
+logging:
+  config: classpath:log/logback.xml
+  file:
+    path: logs/
+    name: my-spc-web.log
+
+feign:
+  httpclient:
+    connection-timeout: 2000
+
+  compression: #GZIP压缩配置
+    request:
+      enabled: true
+      min-request-size: 2048 #压缩数据大小的下限
+    response:
+      enabled: true
+  client:
+    config:
+      default: #default对应全局修改，也可以用服务名称
+        loggerLevel: FULL
+      biz-service:
+        loggerLevel: INFO
