@@ -14,7 +14,8 @@
 		<module>my-spc-turbine</module>
 		<module>my-spc-parent</module>
         <module>my-spc-module</module>
-    </modules>
+		<module>my-spc-comm</module>
+	</modules>
 
 	<parent>
 		<groupId>cn.bobz</groupId>
@@ -24,7 +25,7 @@
 	</parent>
 
 	<artifactId>my-spc</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 

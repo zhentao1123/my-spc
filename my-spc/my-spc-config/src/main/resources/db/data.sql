@@ -91,3 +91,19 @@ INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
 VALUES ('biz-service', 'default', 'master', 'eureka.client.fetchRegistry', 'true');
 INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
 VALUES ('biz-service', 'default', 'master', 'eureka.client.serviceUrl.defaultZone', 'http://${EUREKA_SERVER1_HOST:127.0.0.1}:${EUREKA_SERVER1_PORT:8010}/eureka/');
+
+-- web
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
+VALUES ('web', 'default', 'master', 'server.port', '${SERVER_PORT:8004}');
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
+VALUES ('web', 'default', 'master', 'eureka.instance.preferIpAddress', 'true');
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
+VALUES ('web', 'default', 'master', 'eureka.instance.lease-renewal-interval-in-seconds', '10');
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
+VALUES ('web', 'default', 'master', 'eureka.instance.lease-expiration-duration-in-seconds', '30');
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
+VALUES ('web', 'default', 'master', 'eureka.client.registerWithEureka', 'true');
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
+VALUES ('web', 'default', 'master', 'eureka.client.fetchRegistry', 'true');
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE)
+VALUES ('web', 'default', 'master', 'eureka.client.serviceUrl.defaultZone', 'http://${EUREKA_SERVER1_HOST:127.0.0.1}:${EUREKA_SERVER1_PORT:8010}/eureka/');

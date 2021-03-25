@@ -1,0 +1,8 @@
+port:
+config: 8011
+eureka: 8010
+gateway: 8000
+turbine: 8001
+admin: 8002
+biz: 8003
+web: 8004
