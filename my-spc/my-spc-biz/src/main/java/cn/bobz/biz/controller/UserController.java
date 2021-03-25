@@ -1,6 +1,5 @@
-package cn.bobz.controller;
+package cn.bobz.biz.controller;
 
-import cn.bobz.MySpcBizApplication;
 import cn.bobz.module.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package cn.bobz.controller;
+package cn.bobz.myspcweb.remote;
 
 import cn.bobz.module.User;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface UserClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/getUser")
-    public User getUser();
+    User getUser();
 
 }
