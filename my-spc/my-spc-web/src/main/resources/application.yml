@@ -19,4 +19,4 @@ feign:
       default: #default对应全局修改，也可以用服务名称
         loggerLevel: FULL
       biz-service:
-        loggerLevel: INFO
+        loggerLevel: BASIC
