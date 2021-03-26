@@ -1,12 +1,17 @@
 package cn.bobz.biz.controller;
 
+import cn.bobz.module.CommResponse;
 import cn.bobz.module.User;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * 响应json格式，@RequestMapping中配置headers和produces为json格式
@@ -23,17 +28,70 @@ public class UserController {
 
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
-    @RequestMapping(path = "/getUser")
-    @HystrixCommand(fallbackMethod = "getUserErrCallBack")
-    public User getUser() {
+    @RequestMapping(path = "/getUser/{id}")
+    public CommResponse<User> getUser(@PathVariable("id") Integer id) {
         log.info("==> Request getUser ");
         User user = new User();
+        user.setId(id);
         user.setName("Tom");
         user.setAge(10);
-        return user;
+        return CommResponse.getInstances4Succeed(user);
     }
 
-    public User getUserErrCallBack(){
-        return new User();
+    // ============================================================================
+
+    /**
+     * 演示超时
+     * @return
+     */
+    @RequestMapping(path = "/getUser1/{id}")
+    @HystrixCommand(fallbackMethod = "getUserTimeout",commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "5000")
+    })
+    public CommResponse<User> getUser1(@PathVariable("id") Integer id){
+        log.info("==> Request getUser1 ");
+        int timeNumber = 3000;
+        try {
+            TimeUnit.MILLISECONDS.sleep(timeNumber);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        User user = new User();
+        user.setId(id);
+        user.setName("Tom");
+        user.setAge(10);
+        return CommResponse.getInstances4Succeed(user);
     }
+    public CommResponse<User> getUserTimeout(Integer id){
+        return CommResponse.getInstances4Fail("Get user timeout");
+    }
+
+    // ============================================================================
+
+    /**
+     * 熔断
+     * @return
+     */
+    @RequestMapping(path = "/getUser2/{id}")
+    @HystrixCommand(fallbackMethod = "getUserCallback",commandProperties ={
+            @HystrixProperty(name = "circuitBreaker.enabled",value = "true"), //是否开启断路器
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "2"), //请求次数
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds",value = "5000"), //时间窗口期
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "50"),//失败率达到多少后跳闸
+    })
+    public CommResponse<User> getUser2(@PathVariable("id") Integer id){
+        log.info("==> Request getUser2 "); //触发熔断则不会打印
+        if (id < 1) {
+            throw new RuntimeException("id 不能为负数");
+        }
+        User user = new User();
+        user.setId(id);
+        user.setName("Tom");
+        user.setAge(10);
+        return CommResponse.getInstances4Succeed(user);
+    }
+    public CommResponse<User> getUserCallback(Integer id){
+        return CommResponse.getInstances4Fail("Get user Fail");
+    }
+
 }

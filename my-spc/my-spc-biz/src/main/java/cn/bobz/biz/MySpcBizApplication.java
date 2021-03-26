@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
 @EnableFeignClients
-@EnableHystrix //熔断
+@EnableHystrix //支持熔断
 public class MySpcBizApplication {
 
 	public static void main(String[] args) {

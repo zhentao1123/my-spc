@@ -10,3 +10,7 @@ eureka:
     
 server:
   port: 8004 #本地配置不能覆盖config服务器配置
+
+feign:
+  hystrix:
+    enabled: true

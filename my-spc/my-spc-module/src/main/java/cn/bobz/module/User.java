@@ -1,6 +1,7 @@
 package cn.bobz.module;
 
 public class User{
+    private Integer id;
     private String name;
     private Integer age;
     public String getName() {
@@ -14,5 +15,11 @@ public class User{
     }
     public void setAge(Integer age) {
         this.age = age;
+    }
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
