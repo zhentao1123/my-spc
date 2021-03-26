@@ -1,6 +1,7 @@
 package cn.bobz.biz.controller;
 
 import cn.bobz.module.User;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ public class UserController {
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping(path = "/getUser")
+    @HystrixCommand(fallbackMethod = "getUserErrCallBack")
     public User getUser() {
         log.info("==> Request getUser ");
         User user = new User();
@@ -31,4 +33,7 @@ public class UserController {
         return user;
     }
 
+    public User getUserErrCallBack(){
+        return new User();
+    }
 }
