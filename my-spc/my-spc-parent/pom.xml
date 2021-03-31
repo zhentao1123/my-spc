@@ -18,12 +18,13 @@
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.test.skip>true</maven.test.skip>
 
-		<springboot.version>2.2.0.RELEASE</springboot.version>
-		<springcloud.version>Hoxton.SR5</springcloud.version>
+		<springboot.version>2.3.2.RELEASE</springboot.version>
+		<springcloud.version>Hoxton.SR8</springcloud.version>
+		<spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>
 		<!-- 
-		<spring-boot-admin.version>2.1.4</spring-boot-admin.version>
+		<spring-boot-admin.version>2.2.4</spring-boot-admin.version>
 		 -->
-		<spring-boot-admin.version>2.2.3</spring-boot-admin.version>
+		<spring-boot-admin.version>2.3.1</spring-boot-admin.version>
 
 		<alibaba-nacos.version>2.2.1.RELEASE</alibaba-nacos.version>
 		<jedis.version>2.9.0</jedis.version>
