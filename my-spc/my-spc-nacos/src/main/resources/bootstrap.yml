@@ -8,3 +8,9 @@ spring:
       password: nacos
       discovery:
         server-addr: 127.0.0.1:8848
+        ephemeral: true #是否临时实例。临时和持久化的区别主要在健康检查失败后的表现，持久化实例健康检查失败后会被标记成不健康，而临时实例会直接从列表中被删除。
+
+# Nacos 集群默认支持的是CAP原则中的AP原则，但是也可切换为CP原则，切换命令如下：
+# curl -X PUT '$NACOS_SERVER:8848/nacos/v1/ns/operator/switches?entry=serverMode&value=CP'
+# 同时微服务的bootstrap.properties 需配置如下选项指明注册为临时/永久实例
+# AP模式不支持数据一致性，所以只支持服务注册的临时实例，CP模式支持服务注册的永久实例，满足配置文件的一致性
