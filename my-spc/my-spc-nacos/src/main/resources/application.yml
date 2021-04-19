@@ -1,6 +1,9 @@
-spring:
-  profiles:
-    active: dev
-
 server:
   port: 8005
+
+spring:
+    profiles:
+      active: dev #nacos config 中与只对应配置
+
+test: local-default
+test-share: share-local
