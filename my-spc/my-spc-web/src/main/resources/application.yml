@@ -14,9 +14,11 @@ feign:
       min-request-size: 2048 #压缩数据大小的下限
     response:
       enabled: true
+
   client:
     config:
       default: #default对应全局修改，也可以用服务名称
-        loggerLevel: FULL
+        loggerLevel: FULL #NONE: 不输出日志 BASIC：只输出请求方法的URL和响应的状态码以及接口执行时间 HEADER：将BASIC信息和请求头信息输出 FULL：输出完整的请求信息
+
       biz-service:
         loggerLevel: BASIC

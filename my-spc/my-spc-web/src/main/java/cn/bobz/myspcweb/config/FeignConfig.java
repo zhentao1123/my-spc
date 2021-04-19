@@ -11,19 +11,23 @@ import feign.RequestTemplate;
 import feign.Retryer;
 import feign.codec.ErrorDecoder;
 
+/**
+ * 1.请求全局处理需求。实现并注册RequestInterceptor，实现其apply方法
+ * 2.自定义
+ */
 @Configuration
-public class FeignConfig implements RequestInterceptor{
-	
+public class FeignConfig implements RequestInterceptor { //, FeignConfigHandler{
+
 	@Value("${spring.application.name}")
 	public String appName;
-	
+
+	@Autowired
+	private FeignConfigHandler feignConfigHandler;
+
 	@Bean
 	public FeignConfigHandler feignConfigHandler() {
 		return new DefaultFeignConfigHandler();
 	}
-	
-	@Autowired
-	private FeignConfigHandler feignConfigHandler;
 	
 	@Bean
     public Logger.Level feignLoggerLevel() {
@@ -34,10 +38,10 @@ public class FeignConfig implements RequestInterceptor{
 	 * 配置重试器
 	 * @return
 	 */
-//	@Bean
-//    public Retryer feignRetryer(){
-//       return feignConfigHandler.feignRetryer();
-//    }
+	@Bean
+    public Retryer feignRetryer(){
+       return feignConfigHandler.feignRetryer();
+    }
 	
 	/**
 	 * 自定义错误处理器
