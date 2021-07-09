@@ -18,7 +18,7 @@
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.test.skip>true</maven.test.skip>
 
-		<springboot.version>2.3.2.RELEASE</springboot.version>
+		<springboot.version>2.3.5.RELEASE</springboot.version>
 		<springcloud.version>Hoxton.SR8</springcloud.version>
 		<spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>
 		<!-- 
