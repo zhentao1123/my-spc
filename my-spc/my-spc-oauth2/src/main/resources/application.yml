@@ -1,0 +1,10 @@
+
+spring:
+  redis:
+    host: r-bp1841b5b80d8754pd.redis.rds.aliyuncs.com # //公网地址
+    database: 0
+    port: 6379 # Redis服务器连接端口
+    password: 39fIdkwls230oP # Redis服务器连接密码（默认为空）
+
+server:
+  port: 8080
