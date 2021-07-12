@@ -37,7 +37,7 @@
 		<guava.version>26.0-jre</guava.version>
 		<orika.version>1.5.2</orika.version>
 		<redisson.version>3.10.2</redisson.version>
-		<httpclient.version>4.5.6</httpclient.version>
+		<httpclient.version>4.5.13</httpclient.version>
 		<feign-httpclient.version>10.1.0</feign-httpclient.version>
 		<lombok.version>1.18.4</lombok.version>
 		<zipkin.version>2.11.12</zipkin.version>
