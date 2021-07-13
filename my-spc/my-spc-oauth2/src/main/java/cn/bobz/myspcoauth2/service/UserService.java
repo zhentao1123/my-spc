@@ -21,7 +21,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        String password = passwordEncoder.encode("111111");
+        String password = passwordEncoder.encode("123456");
         return new User("bobz", password, AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
     }
 }

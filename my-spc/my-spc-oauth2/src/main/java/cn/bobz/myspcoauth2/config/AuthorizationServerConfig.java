@@ -1,20 +1,18 @@
 package cn.bobz.myspcoauth2.config;
 
+import cn.bobz.myspcoauth2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.config.annotation.builders.InMemoryClientDetailsServiceBuilder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.util.Assert;
-
-import java.util.Arrays;
-import java.util.List;
 
 @Configuration
 @EnableAuthorizationServer
@@ -24,12 +22,22 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private PasswordEncoder passwordEncoder;
 
     @Autowired
+    private AuthenticationManager authenticationManagerBean;
+
+    @Autowired
     private TokenStore tokenStore;
+
+    @Autowired
+    private UserService userService;
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.tokenStore(tokenStore) //指定token存储到redis
-                .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST);
+        endpoints
+                //.authenticationManager(authenticationManagerBean) //使用密码模式需要配置
+                .tokenStore(tokenStore) //指定token存储到redis
+                .reuseRefreshTokens(false) //refresh_token是否重复使用
+                //.userDetailsService(userService) //刷新令牌授权包含对用户信息的检查
+                .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST); //支持GET,POST请求
     }
 
     @Override
@@ -40,55 +48,72 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         /*
-        授权码模式
-        http://localhost:8080/oauth/authorize?response_type=code&client_id=client&redirect_uri=http://www.baidu.com&scope=all
-        简化模式
-        http://localhost:8080/oauth/authorize?response_type=token&client_id=client&redirect_uri=http://www.baidu.com&scope=all
-        */
+         * authorization_code: 授权码模式
+         * http://localhost:8080/oauth/authorize?response_type=code&client_id=client&redirect_uri=http://www.baidu.com&scope=all
+         * http://localhost:8080/oauth/authorize?response_type=code&client_id=client
+         *
+         * implicit: 简化模式
+         * http://localhost:8080/oauth/authorize?client_id=client&response_type=token&scope=all&redirect_uri=http://www.baidu.com
+         *
+         * password: 密码模式
+         * http://localhost:8080/oauth/token?username=bobz&password=123456&grant_type=password&client_id=client&client_secret=111111&scope=all
+         *
+         * client_credentials: 客户端模式
+         * http://localhost:8080/oauth/token?grant_type=client_credentials&scope=all&client_id=client&client_secret=123123
+         *
+         * 刷新令牌
+         * http://localhost:8080/oauth/token?grant_type=refresh_token&client_id=client&client_secret=123123&refresh_token=[refresh_token值]
+         */
 
-        /*
-                clients.inMemory()
-                        //配置client_id
-                        .withClient("client")
-                        //配置client-secret
-                        .secret(passwordEncoder.encode("111111"))
-                        //配置访问token的有效期
-                        .accessTokenValiditySeconds(3600)
-                        //配置刷新token的有效期
-                        .refreshTokenValiditySeconds(864000)
-                        //配置redirect_uri，用于授权成功后跳转
-                        .redirectUris("http://www.baidu.com")
-                        //配置申请的权限范围
-                        .scopes("all")
-                        //配置grant_type，表示授权类型
-                        .authorizedGrantTypes("authorization_code","implicit")
 
-                        .and()
-                        //配置client_id
-                        .withClient("client1")
-                        //配置client-secret
-                        .secret(passwordEncoder.encode("111111"))
-                        //配置访问token的有效期
-                        .accessTokenValiditySeconds(3600)
-                        //配置刷新token的有效期
-                        .refreshTokenValiditySeconds(864000)
-                        //配置redirect_uri，用于授权成功后跳转
-                        .redirectUris("http://www.163.com")
-                        //配置申请的权限范围
-                        .scopes("all")
-                        //配置grant_type，表示授权类型
-                        .authorizedGrantTypes("authorization_code","implicit");
-        */
+        clients.inMemory()
+                //配置client_id
+                .withClient("client")
+                //配置client-secret
+                .secret(passwordEncoder.encode("111111"))
+//                .resourceIds(ResourceServiceConfig.TEST_RESOURCE_ID)
+                //配置访问token的有效期
+                .accessTokenValiditySeconds(3600)
+                //配置刷新token的有效期
+                .refreshTokenValiditySeconds(864000)
+                //配置redirect_uri，用于授权成功后跳转
+                .redirectUris("http://www.baidu.com")
+                //配置申请的权限范围
+                .scopes("all")
+                //配置grant_type，表示授权类型
+                .authorizedGrantTypes("authorization_code","implicit","client_credentials","password","refresh_token")
+
+                .and()
+                //配置client_id
+                .withClient("client1")
+                //配置client-secret
+                .secret(passwordEncoder.encode("111111"))
+                //配置访问token的有效期
+                .accessTokenValiditySeconds(3600)
+                //配置刷新token的有效期
+                .refreshTokenValiditySeconds(864000)
+                //配置redirect_uri，用于授权成功后跳转
+                .redirectUris("http://www.163.com")
+                //配置申请的权限范围
+                .scopes("all")
+                //配置grant_type，表示授权类型
+                .authorizedGrantTypes("authorization_code","implicit","client_credentials","password","refresh_token");
 
         //该处可以从数据库初始化
+        /*
         configClients(clients, Arrays.asList(
-                new ClientConfig("client", "111111", 3600, 864000, "http://www.baidu.com", "all", new String[]{"authorization_code","implicit"}),
-                new ClientConfig("client1", "111111", 3600, 864000, "http://www.163.com", "all", new String[]{"authorization_code","implicit"})
+                new ClientConfig("client", "111111", 3600, 864000, "http://www.baidu.com", "all", new String[]{"authorization_code","implicit","client_credentials","refresh_token"}),
+                new ClientConfig("client1", "111111", 3600, 864000, "http://www.163.com", "all", new String[]{"authorization_code","implicit","client_credentials","refresh_token"})
         ));
+         */
 
-        clients.withClientDetails();
+        //配置客户端存储到db 代替原来得内存模式
+//        JdbcClientDetailsService clientDetailsService = new JdbcClientDetailsService(dataSource);
+//        clientDetailsService.setPasswordEncoder(passwordEncoder);
+//        clients.withClientDetails(clientDetailsService);
     }
 
+    /*
     private void configClients(ClientDetailsServiceConfigurer clients, List<ClientConfig> clientConfigList) throws Exception {
         Assert.notNull(clients, "");
         Assert.notEmpty(clientConfigList, "");
@@ -183,4 +208,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
             this.authorizedGrantTypes = authorizedGrantTypes;
         }
     }
+     */
 }
